@@ -1,18 +1,9 @@
-package org.ekia.ecommerce.repository.entity;
+package org.ekia.ecommerce.controller.dto;
 
-import org.ekia.ecommerce.controller.dto.ProductDto;
-
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "product_list")
-public class Product
+public class ProductDto
 {
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer id;
-
     private String name;
 
     private double price;
@@ -29,26 +20,15 @@ public class Product
 
     private Date createdAt;
 
-    public Product() {
-    }
-
-    public Product(ProductDto productDto) {
-        this.name = productDto.getName();
-        this.price = productDto.getPrice();
-        this.priceDisc = productDto.getPriceDisc();
-        this.description = productDto.getDescription();
-        this.imageUrl = productDto.getImageUrl();
-        this.isOnSale = productDto.isOnSale();
-        this.updatedAt = productDto.getUpdatedAt();
-        this.createdAt = productDto.getCreatedAt();
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public ProductDto(String name, double price, double priceDisc, String description, String imageUrl, boolean isOnSale, Date updatedAt, Date createdAt) {
+        this.name = name;
+        this.price = price;
+        this.priceDisc = priceDisc;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.isOnSale = isOnSale;
+        this.updatedAt = updatedAt;
+        this.createdAt = createdAt;
     }
 
     public String getName() {
