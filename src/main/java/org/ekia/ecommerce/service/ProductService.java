@@ -7,12 +7,12 @@ import java.util.List;
 public interface ProductService
 {
 
-    Product save(Product item );
+    Product save(Product product );
 
-    boolean delete( int itemId );
+    boolean delete( int productId );
 
     List<Product> all();
 
-    Product findById( int itemId );
+    Product findById( int productId );
 
 }

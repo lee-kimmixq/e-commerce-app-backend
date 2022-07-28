@@ -16,19 +16,23 @@ public class ProductController{
         this.productService = productService;
     }
 
+    @CrossOrigin
     @GetMapping("/product/all")
     public Iterable<Product> getProducts(){
         return productService.all();
     }
 
+    @CrossOrigin
     @PostMapping("/product")
     public Product addProduct(@RequestBody ProductDto productDto) { return productService.save(new Product(productDto)); }
-//Just added for Question 7 -To be review by Kimmi
+
+    @CrossOrigin
     @GetMapping("/product/{id}")
     public Product getProductById( @PathVariable Integer id ){
         return productService.findById( id );
     }
 
+    @CrossOrigin
     @PutMapping( "/product/{id}" )
     public Product updateProduct( @RequestBody ProductDto productDto, @PathVariable Integer id )
     {
@@ -39,11 +43,9 @@ public class ProductController{
         product.setDescription( productDto.getDescription() );
         product.setImageUrl( productDto.getImageUrl() );
         product.setOnSale( productDto.isOnSale() );
-        product.setName( productDto.getName() );
-        product.setName( productDto.getName() );
         return productService.save( product );
     }
-
+    @CrossOrigin
     @DeleteMapping( "/product/{id}" )
     public void deleteProduct( @PathVariable Integer id )
     {
